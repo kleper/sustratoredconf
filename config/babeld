@@ -1,0 +1,64 @@
+
+config general 'general'
+	option local_port '30003'
+
+config filter 'public6'
+	option type 'redistribute'
+	option ip '2000::0/3'
+	option action 'allow'
+
+config filter 'default6'
+	option type 'redistribute'
+	option ip '0::0/0'
+	option le '0'
+	option action 'allow'
+
+config filter 'mesh4'
+	option type 'redistribute'
+	option ip '10.0.0.0/8'
+	option action 'allow'
+
+config filter 'mptp4'
+	option type 'redistribute'
+	option ip '172.16.0.0/12'
+	option action 'allow'
+
+config filter 'default4'
+	option type 'redistribute'
+	option ip '0.0.0.0/0'
+	option le '0'
+	option action 'allow'
+
+config filter 'localdeny'
+	option type 'redistribute'
+	option local 'true'
+	option action 'deny'
+
+config filter 'dany'
+	option type 'redistribute'
+	option action 'deny'
+
+config interface 'lm_net_wlan2_mesh_babeld_if'
+	option ifname 'wlan2-mesh_17'
+	option wired 'false'
+
+config interface 'lm_net_wlan1_mesh_babeld_if'
+	option ifname 'wlan1-mesh_17'
+	option wired 'false'
+
+config interface 'lm_net_eth1_2_babeld_if'
+	option ifname 'eth1-2_17'
+	option wired 'false'
+
+config interface 'lm_net_eth0_1_babeld_if'
+	option ifname 'eth0-1_17'
+	option wired 'false'
+
+config interface 'lm_net_eth0_babeld_if'
+	option ifname 'eth0_17'
+	option wired 'false'
+
+config interface 'lm_net_eth1_babeld_if'
+	option ifname 'eth1_17'
+	option wired 'false'
+

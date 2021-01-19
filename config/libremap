@@ -1,0 +1,44 @@
+
+config libremap 'settings'
+	list api_url 'http://libremap.net/api/'
+	option public_url 'http://libremap.net/'
+	option fetch_by_name '0'
+	option community 'FIXME'
+	option community_lat 'FIXME'
+	option community_lon 'FIXME'
+
+config plugin 'altermap'
+	option enabled '0'
+
+config plugin 'contact'
+	option enabled '0'
+	option name 'FIXME'
+	option email 'FIX@ME'
+
+config plugin 'freifunk'
+	option enabled '0'
+
+config plugin 'location'
+	option enabled '1'
+	option latitude 'FIXME'
+	option longitude 'FIXME'
+	option elev '0'
+
+config plugin 'olsr'
+	option enabled '0'
+
+config plugin 'system'
+	option enabled '1'
+
+config plugin 'wireless'
+	option enabled '1'
+
+config plugin 'babeld'
+	option enabled 'true'
+
+config plugin 'bmx6'
+	option enabled '0'
+
+config plugin 'qmp'
+	option enabled '0'
+

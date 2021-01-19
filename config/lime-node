@@ -1,0 +1,9 @@
+
+config lime 'system'
+	option hostname 'nodo-libre-2'
+	option firstbootwizard_configured 'true'
+
+config lime 'network'
+
+config lime 'wifi'
+

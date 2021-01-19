@@ -1,0 +1,17 @@
+
+config rpcd
+	option socket '/var/run/ubus.sock'
+	option timeout '30'
+
+config login
+	option username 'root'
+	option password '$p$root'
+	list read '*'
+	list write '*'
+
+config login
+	option username 'lime-app'
+	option password '$1$$ta3C2yX4TvVObdaJyQ9Md1'
+	list read 'lime-app'
+	list write 'lime-app'
+
