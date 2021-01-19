@@ -1,0 +1,26 @@
+#!/bin/sh
+##Lo primero que hacemos es agregar el gateway de la lan de forma manual
+##Este gateway es el PfSense que tenemos en la red
+uci set network.lan.gateway='10.171.1.1'
+###Lo segundo es modificar un par de opciones en el servidor DHCP (DNSmasq) de cada uno de los nodos
+##Para que los clientes seban que maquina es la salida a internet
+###Tambien agregamos reglas al dns para definir nuestro  dominio local
+uci add_list dhcp.@dnsmasq[0].dhcp_option='3,10.171.1.1'
+uci add_list dhcp.@dnsmasq[0].dhcp_option='121,10.132.0.0/16,10.171.0.1'
+uci add_list dhcp.@dnsmasq[0].dhcp_option='249,10.132.0.0/16,10.171.0.1'
+uci add_list dhcp.@dnsmasq[0].address='/.sustrato.red/10.171.1.2'
+uci add_list dhcp.@dnsmasq[0].address='/fw.sustrato.red/10.171.1.1'
+###Agregamos configuraciones para evitar que se pueda ingresar a los nodos usando password
+## Se agregan las reglas de dropbear para que tenga las llaves publicas de los administradores de la red.
+#uci set dropbear.@dropbear[0].PasswordAuth=on
+##Ahora agregamos las opciones para LibreMAP
+uci set libremap.settings.community='Sustrato.Red'
+uci set libremap.settings.community_lat='8.42429'
+uci set libremap.settings.community_lon='-76.78173'
+uci set libremap.contact.name='Rizomatico'
+uci set libremap.contact.email='raiz@sustrato.red'
+uci set libremap.location.latitude='8.42429'
+uci set libremap.location.longitude='-76.78173'
+
+##Aplicamos los cambios
+uci commit

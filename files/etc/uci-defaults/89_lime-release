@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# override original lime release because it overwrites buildroot release information.
+
+exit 0

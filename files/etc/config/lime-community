@@ -1,0 +1,11 @@
+
+config lime 'system'
+	option root_password_policy 'SET_SECRET'
+	option root_password_secret '$1$3Xr/PqE2$OZikLtVM/Kou7Hk/91xOC1'
+
+config lime 'network'
+
+config lime 'wifi'
+	option ap_ssid 'Sustrato.Red'
+	option apname_ssid 'Sustrato.Red/%H'
+
